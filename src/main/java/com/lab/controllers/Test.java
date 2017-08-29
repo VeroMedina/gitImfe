@@ -24,10 +24,13 @@ public class Test
   @ResponseBody
   @RequestMapping(value = "/test",
                   method = RequestMethod.POST,
-                  produces = MediaType.APPLICATION_JSON_VALUE)
+                  produces = MediaType.APPLICATION_JSON_VALUE) //vamos a usar Json
   public List<TestModel> test(@RequestBody TestModel obj) throws Exception
   {
-    List<TestModel> x = iService.testService(obj);
+      System.out.println(obj.getPropiedad());
+      System.out.println(obj.getTable());
+      
+      List<TestModel> x = iService.testService(obj);
 
     return x;
   }
