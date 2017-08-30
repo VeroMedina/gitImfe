@@ -10,17 +10,22 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider,
     {
       redirectTo: '/'
     })
-
-    .when('/pagina1',
+    
+    .when('/',
     {
-      templateUrl: GBL_COFG.urlTemplate('pagina1.html'),
-      controller: 'ng-app-controller-template1'
+      templateUrl: GBL_COFG.urlTemplate('inicio.html')
     })
 
-    .when('/pagina2',
+    .when('/info',
     {
-      templateUrl: GBL_COFG.urlTemplate('pagina2.html'),
-      controller: 'ng-app-controller-template2'
+      templateUrl: GBL_COFG.urlTemplate('info.html'),
+      
+    })
+
+    .when('/test',
+    {
+      templateUrl: GBL_COFG.urlTemplate('test.html'),
+      controller: 'ng-app-controller-test'
     });
   }]);
 

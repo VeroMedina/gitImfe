@@ -1,9 +1,9 @@
-app.controller('ng-app-controller-template1', ['$scope', '$http', function ($scope,
+app.controller('ng-app-controller-test', ['$scope', '$http', function ($scope,
   $http)
   {
     console.log('1');
-    $scope.mensaje = 'Texto cargado desde el controlador Pagina1Controller';
-
+    $scope.mensaje = 'Texto cargado desde el controlador "controller test" ';
+    
     $http.post('/test', //nombre del controlador
     {
       propiedad: 'hello',

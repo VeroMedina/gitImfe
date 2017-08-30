@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <title>Titulo</title>
-    <link type="text/css" rel="stylesheet"  href="/api/css/normalizer.min.css"/>
+    <link type="text/css" rel="stylesheet"  href="/api/css/normalizer.css"/>
+    <link type="text/css" rel="stylesheet"  href="/ng-css/inicial.css"/>
+    <link type="text/css" rel="stylesheet"  href="/ng-css/test.css"/>
     <script type="text/javascript" src="/api/js/lib/ng-angular.min.js"></script>
     <script type="text/javascript" src='/api/js/lib/ng-angular-route.min.js'></script>
 
@@ -13,17 +15,23 @@
 
   </head>
   <body apploading> 
-     
-    <ul>
-      <li><a href="#!/pagina1">Ir a la pagina 1</a>
-      </li>
-      <li><a href="#!/pagina2">Ir a la pagina 2</a>
-      </li>
-    </ul>
+      <header id="header">
+          <nav>
+              <ul>
+                  <li><a href="#!/">Inicio</a>
+                <li><a href="#!/info">Información</a>
+                </li>
+                <li><a href="#!/test">Test</a>
+                </li>
+             </ul>
+          </nav>
+          
+      </header>   
+    
 
     <div ng-view></div>
 
-    <script type="text/javascript" src="/ng-controller/ng-app-controller-template1.js"></script>
-    <script type="text/javascript" src="/ng-controller/ng-app-controller-template2.js"></script>
+    <script type="text/javascript" src="/ng-controller/ng-app-controller-index.js"></script>
+    <script type="text/javascript" src="/ng-controller/ng-app-controller-test.js"></script>
   </body>
 </html>
