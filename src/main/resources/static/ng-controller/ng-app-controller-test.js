@@ -1,26 +1,31 @@
-app.controller('ng-app-controller-test', ['$scope', '$http', function ($scope,
-  $http)
+app.controller('ng-app-controller-test', 
+['$scope', '$http','$timeout', function ($scope,$http,$timeout)
   {
-    console.log('1');
-    $scope.mensaje = 'Texto cargado desde el controlador "controller test" ';
+    $scope.testOk=false;
     
-    $http.post('/test', //nombre del controlador
+    $scope.test=function()
     {
-      propiedad: 'hello',
-      table: 'vero'
-    })
-    .then(function (response)
-    {
-      console.log(response.data);
-      
-                    for (var i = 0, max = response.data.length; i < max; i++) 
-                    {
-                        console.log(response.data[i].table);
-                        $scope.mensaje+=response.data[i].table;
-                    }
-      
-    });
+        $http.post('/test', //nombre del controlador
+        {
+           table: 'propiedad del objeto'
 
+        })
+        .then(function (response)
+        {
+            var data=response.data;
+            
+            $scope.testOk=true;
+            $scope.bbdd=data;
+            
+            $timeout(function()
+            {
+                $scope.testOk=false;
+                
+            },5000);
+            
+
+        });
+    };
   }]);
   
   

@@ -1,4 +1,4 @@
-#test
+#about
 {
   float: left;
   width: 100%;
@@ -12,55 +12,33 @@
   align-items: center;
 }
 
-#test > h1
-{
-  float: left;
-  width: 100%;
-  text-align: center;
-  text-decoration: underline;
-  padding-bottom: 35px;
-}
-
-#test > input[type="button"]
-{
-  cursor: pointer;
-  padding: 25px;
-  text-transform: uppercase;
-  background-color: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(50, 50, 50, 0.15);
-}
-
-#test > div
-{
-  width: 100%;
-  padding-left: 50%;
-}
-
-#test > div ul
+#about > div ul
 {
   position: relative;
-  float: left;
-  width: 100%;
+  left:35%;
+  width: 50%;
   padding: 25px;
   border-left: 1px solid rgba(50, 50, 50, 0.5);
+   
 }
 
-#test > div ul::before
+#about > div ul::before
 {
   content: '';
   position: absolute;
   top: 0;
-  right: 100%;
+  right:100%;
   width: 100%;
   height: 100%;
   margin-right: 30px;
-  background-image: url('../ng-img/bbdd.png');
+  opacity: 0.75;
+  background-image: url('info.png');
   background-position: right center;
   background-repeat:  no-repeat;
   background-size: contain;
 }
 
-#test > div ul li
+#about > div ul li
 {
   padding: 5px;
 }

@@ -55,7 +55,7 @@ body.appLoading::before
     transition: all 250ms ease-in-out;
     transform: translateX(-290px); /*oculta el ancho del header*/
     box-shadow: 0 0 10px pink; /*sombras*/
-    border-right: 1px solid rgba(240,50,200,0.95);
+    border-right: 1px solid rgba(186,85,211,0.95);
     
 }
 
