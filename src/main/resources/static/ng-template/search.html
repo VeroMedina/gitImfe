@@ -1,0 +1,24 @@
+<div id="search">
+    <fieldset id="searchWrapper">
+        <!-- con $event envio el objeto que obtengo del input a la funcion search -->
+        <input id="cuadro" type="text" placeholder="Buscador" ng-keyup="search($event)"/> 
+    </fieldset>
+    <div id="items">
+          <article ng-repeat="x in bbdd track by $index">
+              <section>
+                  
+                    <figure style="background-image: url('{{x.url}}')">
+                    </figure>
+                    <div>
+                        
+                        <h1>{{x.nombre}}</h1>
+                        <p>{{x.descripcion}} </p>
+                 
+                    </div>
+              </section>
+          </article>
+        
+    </div>
+
+
+</div>

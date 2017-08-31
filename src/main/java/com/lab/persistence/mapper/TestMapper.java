@@ -7,4 +7,6 @@ import java.util.List;
 public interface TestMapper
 {
   public List<TestModel> testMapper(TestModel obj) throws Exception;
+  
+  
 }

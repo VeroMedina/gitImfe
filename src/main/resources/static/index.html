@@ -7,6 +7,8 @@
     <link type="text/css" rel="stylesheet"  href="/ng-css/inicial.css"/>
     <link type="text/css" rel="stylesheet"  href="/ng-css/test.css"/>
     <link type="text/css" rel="stylesheet"  href="/ng-css/about.css"/>
+    <link type="text/css" rel="stylesheet"  href="/ng-css/kirby.css"/>
+    <link type="text/css" rel="stylesheet"  href="/ng-css/search.css"/>
     <script type="text/javascript" src="/api/js/lib/ng-angular.min.js"></script>
     <script type="text/javascript" src='/api/js/lib/ng-angular-route.min.js'></script>
 
@@ -24,15 +26,20 @@
                 </li>
                 <li><a href="#!/test">Test</a>
                 </li>
+                <li><a href="#!/kirby">Kirby</a>
+                </li>
+                <li><a href="#!/search">Buscador</a>
+                </li>
              </ul>
           </nav>
           
       </header>   
     
+    <div id="wrapper"> 
+      <div ng-view></div>
+    </div>
 
-    <div ng-view></div>
-
-    <script type="text/javascript" src="/ng-controller/ng-app-controller-index.js"></script>
+    <script type="text/javascript" src="/ng-controller/ng-app-controller-search.js"></script>
     <script type="text/javascript" src="/ng-controller/ng-app-controller-test.js"></script>
   </body>
 </html>

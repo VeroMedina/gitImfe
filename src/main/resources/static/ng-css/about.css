@@ -32,7 +32,7 @@
   height: 100%;
   margin-right: 30px;
   opacity: 0.75;
-  background-image: url('info.png');
+  background-image: url('../ng-img/info.png');
   background-position: right center;
   background-repeat:  no-repeat;
   background-size: contain;
