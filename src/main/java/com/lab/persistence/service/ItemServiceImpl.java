@@ -21,10 +21,18 @@ public class ItemServiceImpl implements ItemService
      @Autowired
     ItemMapper iMapper;
      
-    @Override
+  @Override
   public List<ItemModel> searchService(ItemModel obj) throws Exception
   {
       List<ItemModel> y = iMapper.searchMapper(obj);
+      
+      return y;
+  }
+  
+  @Override
+  public List<ItemModel> searchAllService(ItemModel obj) throws Exception
+  {
+      List<ItemModel> y = iMapper.searchAllMapper(obj);
       
       return y;
   }

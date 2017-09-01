@@ -1,9 +1,14 @@
-<div id="search">
-    <fieldset id="searchWrapper">
+<div id="contenedorSearch">
+    <fieldset id="cuadroSearch">
         <!-- con $event envio el objeto que obtengo del input a la funcion search -->
-        <input id="cuadro" type="text" placeholder="Buscador" ng-keyup="search($event)"/> 
+        <input type="text" placeholder="Buscador"  ng-keyup="search($event)"/>
+        
+        <div id="contador">
+        <span>{{contador}}</span>
+        </div>
+        
     </fieldset>
-    <div id="items">
+    <div id="contenedorRdo">
           <article ng-repeat="x in bbdd track by $index">
               <section>
                   
@@ -13,12 +18,14 @@
                         
                         <h1>{{x.nombre}}</h1>
                         <p>{{x.descripcion}} </p>
-                 
+                        
                     </div>
+                  
               </section>
+                  
           </article>
         
     </div>
-
+ 
 
 </div>

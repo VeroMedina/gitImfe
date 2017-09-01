@@ -1,81 +1,106 @@
-#search
-{
-  float: left;
+#contenedorSearch{
+  position:relative;
+  float:left;
   width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
+  height: 100vh;
+  
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
   align-content: center;
   align-items: center;
+  background-image:url('../ng-img/fondo.jpg');
+ 
 }
 
-#search #searchWrapper
+#contenedorSearch::before 
 {
-  position: relative;
-  max-width: 500px;
-  padding: 15px;
-  border-radius: 2px;
-  background-color: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(50, 50, 50, 0.2);
-  box-shadow: inset 1px 1px 4px rgba(50, 50, 50, 0.15);
-  margin: 50px 0 25px 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3); /*ultimo punto es opacidad*/
+    background-image: url("http://img.abravogal.com/noise/dark.png"); /*le ponemos textura*/
+    z-index: 0;
+     
 }
 
-#search #searchWrapper > input[type="text"]
+#cuadroSearch{
+    position: absolute;
+    left:520px;
+    top:100px;
+    width: 250px;
+    height: auto;
+    padding:10px 5px;
+    border: 1px solid rgba(248, 130, 130, 1);
+    box-shadow: 0 0 10px rgba(248, 130, 130, 1); /*sombras*/
+    background-color:white;
+    
+    
+}
+
+#contenedorSearch #cuadroSearch > input[type="text"]
 {
   width: 250px;
   float: left;
   padding-right: 45px;
 }
 
-#search #searchWrapper::before
-{
-  content: '';
-  position: absolute;
-  z-index: 2;
-  top: 12px;
-  right: 25px;
-  width: 16px;
-  height: 16px;
-  border-radius: 100%;
-  background-color: rgba(255, 255, 255, 1);
-  box-shadow: inset 0 0 0 2px rgba(50, 50, 50, 0.25);
+#cuadroSearch::before{
+    content:'';
+    position:absolute;
+    left:230px;
+    top:5px;
+    width: 17px;
+    height: 17px;
+    border-radius: 100%;
+    border: 1px solid rgba(248, 130, 130, 1);
+    box-shadow: inset 1px 1px 4px rgba(50, 50, 50, 0.15);
+    
 }
 
-#search #searchWrapper::after
-{
-  content: '';
-  position: absolute;
-  z-index: 1;
-  top: 16px;
-  right: 34px;
-  width: 3px;
-  height: 20px;
-  border-radius: 2px;
-  background-color: rgba(50, 50, 50, 0.25);
-  transform-origin: top right;
-  transform: rotate(-35deg);
+#cuadroSearch::after{
+    content:'';
+    position:absolute;
+    left:239px;
+    top:11px;
+    width: 16px;
+    height: 12px;
+    border-left:2px solid rgba(248, 130, 130, 1);
+    transform: rotate(-35deg);
+    transform-origin: top right;
+    
 }
 
-#search #items
+#contenedorSearch #contenedorRdo
 {
-  float: left;
-  clear: both;
+  position:absolute;
+  top:110px;
   width: 100%;
-  padding: 20px;
+
+  margin:30px;
+  z-index: 1;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: strech;
+  align-items: strech;
+  
 }
 
-#search #items article
+#contenedorSearch #contenedorRdo article
 {
   width: 25%;
+  min-width: 300px;
   float: left;
   padding: 20px;
 }
 
-#search #items article > *
+#contenedorSearch #contenedorRdo article > *
 {
   float: left;
   padding: 0px;
@@ -87,12 +112,12 @@
   box-shadow:  1px 1px 2px rgba(50, 50, 50, 0.25);
 }
 
-#search #items article > * > figure
+#contenedorSearch #contenedorRdo article > * > figure
 {
   float: left;
   width: 100%;
   height: 25vh;
-  min-height: 15vw;
+  min-height: 18vw;
   border-bottom: 1px solid rgba(50, 50, 50, 0.15);
   background-position: center center;
   background-repeat: no-repeat;
@@ -100,31 +125,40 @@
 }
 
 
-#search #items article > * > div
+#contenedorSearch #contenedorRdo article > * > div
 {
   float: left;
   width: 100%;
   padding: 10px 20px;
 }
 
-#search #items article > * > div h1,
-#search #items article > * > div p
+#contenedorSearch #contenedorRdo article > * > div h1,
+#contenedorSearch #contenedorRdo article > * > div p
 {
   float: left;
   width: 100%;
   padding: 10px 0;
 }
 
-#search #items article > * > div h1
+#contenedorSearch #contenedorRdo article > * > div h1
 {
   text-transform: uppercase;
   border-bottom: 1px solid rgba(50, 50, 50, 0.2);
 }
 
-#search #items article > * > div p
+#contenedorSearch #contenedorRdo article > * > div p
 {
   text-align: justify;
   line-height: 1.4rem;
   overflow: hidden;
-  max-height: 50px;
+  
+}
+
+#contador{
+    position:absolute;
+    left:235px;
+    top:7px;
+    font-size: 2px;
+   
+    
 }
