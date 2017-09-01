@@ -3,7 +3,6 @@
   float:left;
   width: 100%;
   height: 100vh;
-  
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -11,7 +10,8 @@
   align-content: center;
   align-items: center;
   background-image:url('../ng-img/fondo.jpg');
- 
+  background-size: cover;
+  
 }
 
 #contenedorSearch::before 
@@ -30,11 +30,12 @@
 
 #cuadroSearch{
     position: absolute;
-    left:520px;
-    top:100px;
-    width: 250px;
-    height: auto;
-    padding:10px 5px;
+    left:620px;
+    top:80px;
+    max-width: 500px;
+    margin-bottom:25px;
+    padding:10px 15px;
+    border-radius: 2px;
     border: 1px solid rgba(248, 130, 130, 1);
     box-shadow: 0 0 10px rgba(248, 130, 130, 1); /*sombras*/
     background-color:white;
@@ -52,7 +53,7 @@
 #cuadroSearch::before{
     content:'';
     position:absolute;
-    left:230px;
+    left:245px;
     top:5px;
     width: 17px;
     height: 17px;
@@ -65,8 +66,8 @@
 #cuadroSearch::after{
     content:'';
     position:absolute;
-    left:239px;
-    top:11px;
+    left:255px;
+    top:12px;
     width: 16px;
     height: 12px;
     border-left:2px solid rgba(248, 130, 130, 1);
@@ -75,29 +76,49 @@
     
 }
 
+
+#contador{
+    position:absolute;
+    left:250px;
+    top:7px;
+    font-size: 2px;
+   
+    
+}
+
 #contenedorSearch #contenedorRdo
 {
   position:absolute;
-  top:110px;
+  top:140px;
   width: 100%;
-
-  margin:30px;
-  z-index: 1;
+  padding:20px;
+  /*z-index: 1;*/
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-content: strech;
-  align-items: strech;
+  align-content: stretch;
+  align-items: stretch;
   
 }
+
 
 #contenedorSearch #contenedorRdo article
 {
   width: 25%;
-  min-width: 300px;
   float: left;
   padding: 20px;
+}
+
+
+@media all and (max-width: 767px)
+{
+    #contenedorSearch #contenedorRdo article
+    {
+        width: 100%;
+         padding: 12px 20px;
+    }
+
 }
 
 #contenedorSearch #contenedorRdo article > *
@@ -152,13 +173,4 @@
   line-height: 1.4rem;
   overflow: hidden;
   
-}
-
-#contador{
-    position:absolute;
-    left:235px;
-    top:7px;
-    font-size: 2px;
-   
-    
 }
