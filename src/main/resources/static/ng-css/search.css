@@ -2,12 +2,12 @@
   position:relative;
   float:left;
   width: 100%;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   background-image:url('../ng-img/fondo.jpg');
   background-size: cover;
- 
-
-  
+  overflow: hidden;
+  padding-top: 35px;
 }
 
 #contenedorSearch::before 
@@ -25,10 +25,11 @@
 }
 
 #cuadroSearch{
-    position: absolute;
-    left:620px;
-    top:80px;
-    max-width: 500px;
+    position: relative;
+    margin: 0 auto;
+/*    left:620px;
+    top:80px;*/
+    max-width: 300px;
     margin-bottom:25px;
     padding:10px 15px;
     border-radius: 2px;
@@ -40,12 +41,12 @@
 }
 @media all and (max-width: 1279px)
 {
-  #cuadroSearch
+/*  #cuadroSearch
   {
     position: absolute;
     left:350px;
     top:80px;
-  }
+  }*/
 }
 
 
@@ -53,28 +54,31 @@
 
 #contenedorSearch #cuadroSearch > input[type="text"]
 {
-  width: 250px;
+  width: 100%;
   float: left;
-  padding-right: 45px;
+  padding-right: 55px;
 }
 
 #cuadroSearch::before{
     content:'';
     position:absolute;
-    left:245px;
+    z-index: 1;
+    right: 35px;
     top:5px;
     width: 17px;
     height: 17px;
     border-radius: 100%;
     border: 1px solid rgba(248, 130, 130, 1);
     box-shadow: inset 1px 1px 4px rgba(50, 50, 50, 0.15);
+    background: white;
     
 }
 
 #cuadroSearch::after{
     content:'';
     position:absolute;
-    left:255px;
+    z-index: 0;
+    right: 27px;;
     top:12px;
     width: 16px;
     height: 12px;
@@ -85,19 +89,24 @@
 }
 
 
-#contador{
+#contador{ /* numero lupa*/
     position:absolute;
-    left:250px;
+    z-index: 2;
+    right: 38px;
     top:7px;
-    font-size: 2px;
-   
+    color: purple;
     
 }
 
+#contador.notFound span /*numero lupa en rojo*/
+    { 
+          color: rgba(245, 50, 50, 1);
+    }
+
 #contenedorSearch #contenedorRdo
 {
-  position:absolute;
-  top:140px;
+  position:relative;
+/*  top:140px;*/
   width: 100%;
   padding:20px;
   /*z-index: 1;*/
