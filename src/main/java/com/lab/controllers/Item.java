@@ -18,6 +18,20 @@ public class Item
     @Autowired
     ItemService iService;
     
+   @ResponseBody
+   @RequestMapping(value = "/searchAll",
+                  method = RequestMethod.POST,
+                  produces = MediaType.APPLICATION_JSON_VALUE) //vamos a usar Json
+  public List<ItemModel> searchAll(@RequestBody ItemModel obj) throws Exception
+  {
+        
+      List<ItemModel> y = iService.searchAllService(obj);
+
+      return y;
+    
+  }
+  
+  
     @ResponseBody
     @RequestMapping(value = "/searchCadena",
                   method = RequestMethod.POST,
@@ -31,18 +45,7 @@ public class Item
     
   }
   
-  @ResponseBody
-    @RequestMapping(value = "/searchAll",
-                  method = RequestMethod.POST,
-                  produces = MediaType.APPLICATION_JSON_VALUE) //vamos a usar Json
-  public List<ItemModel> searchAll(@RequestBody ItemModel obj) throws Exception
-  {
-        
-      List<ItemModel> y = iService.searchAllService(obj);
-
-      return y;
-    
-  }
+ 
   
   @ResponseBody
     @RequestMapping(value = "/searchNumero",

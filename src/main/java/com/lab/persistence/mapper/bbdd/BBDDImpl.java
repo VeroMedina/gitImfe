@@ -40,9 +40,9 @@ public class BBDDImpl implements BBDD
   {
     try
     {
-      this.bbdd = "jdbc:mysql://localhost/dulces";
+      this.bbdd = "jdbc:mysql://localhost:3307/dulces";
       this.user = "root";
-      this.clave = "";
+      this.clave = "asir";
 
 //      Class.forName("org.mariadb.jdbc.Driver");
     }

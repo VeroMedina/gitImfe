@@ -21,27 +21,44 @@ app.controller('ng-app-controller-search',
                 };
         
          var timer=null;
-                
-        //funcion para que se muestre todos los dulces sin buscar nada
+        
+          /**************************************************************************
+         * 
+         * INICIO
+         * 
+         **************************************************************************/
+         
+        /**
+         * Funcion para que se muestre todos los items por defecto
+         * @param {type} e -> no recibe ningun parametro
+         * @return {undefined} devuelve todos los items con sus atributos
+         */
         (function() 
         {
             $http.post('/searchAll',{}) //nombre del controlador
             .then(function (response)
             {
                 var data=response.data;
-
-                $scope.bbdd=data;
-                
-                //Envio la cuenta de los items
-                var cont=data.length;
-                $scope.contador=cont;
+                               
+                $scope.bbdd=data; //Envio datos al html
+                contador(data); //Ejecuto funcion para numero de items en la lupa
 
             });       
 
         })();
         
-        //funcion para mostrar dulces segun busqueda
-      
+          /**************************************************************************
+         * 
+         * PRIVATE FUNCTION
+         * 
+         **************************************************************************/
+        
+        //
+      /**
+       * Funcion para mostrar items segun busqueda ya sea una busqueda mediante cadena o numero
+       * @param {type} e -> recibe el parametro del input del formulario
+       * @return {undefined} -> devuelve todos los items con sus atributos
+       */
 
        $scope.search=function(e) 
        {
@@ -61,32 +78,39 @@ app.controller('ng-app-controller-search',
                   .then(function (response)
                   {
                       var data = response.data;
-                      var cont = data.length;   //Envio la cuenta de los items
+                                           
+                      $scope.bbdd=data; //Envio datos al html
                       
-                      $scope.bbdd     = data;
-                      $scope.contador = cont;
-                      
-                      console.log("antes"+cont);
-                      
-                      
-                      
-                      if (cont === 0)
-                      {
-                         items.elemento.classList.add(items.style.classNotFound);
-                           console.log("dentro if"+cont); 
-                      }
-                      else if(items.elemento.classList.contains(items.style.classNotFound))
-                      {
-                         items.elemento.classList.remove(items.style.classNotFound);
-                      }  
-                    
-                        
-                         console.log("fuera if"+cont); console.log(items.elemento);
-                      
+                      contador(data); //Ejecuto funcion para numero de items en la lupa
+                  
                   });
             },2000);
         };
         
+        /**
+         * Función para contar los items y que aparezca el numero en la lupa del buscador, si el numero es cero se cambia la clase del elemento y se pone en rojo
+         * @param {type} data
+         * @return {undefined}
+         */
+       function contador (data)
+       {
+           
+           var cont = data.length;
+           
+           if (cont === 0)
+                {
+                    items.elemento.classList.add(items.style.classNotFound); //añadimos clase al elemento
+                           
+                }
+                else if(items.elemento.classList.contains(items.style.classNotFound)) //Si el elemento contiene esa clase
+                {
+                    items.elemento.classList.remove(items.style.classNotFound); //la quitamos
+                }  
+                    
+            $scope.contador = cont;
+       };
+       
+       
        
        
         
