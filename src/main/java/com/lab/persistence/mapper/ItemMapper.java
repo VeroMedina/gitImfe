@@ -14,6 +14,7 @@ import java.util.List;
  */
 public interface ItemMapper 
 {
-    public List<ItemModel> searchMapper (ItemModel obj) throws Exception;
+    public List<ItemModel> searchCadenaMapper (ItemModel obj) throws Exception;
     public List<ItemModel> searchAllMapper (ItemModel obj) throws Exception;
+    public List<ItemModel> searchNumeroMapper (ItemModel obj) throws Exception;
 }

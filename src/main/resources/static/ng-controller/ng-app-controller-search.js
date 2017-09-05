@@ -1,8 +1,14 @@
 app.controller('ng-app-controller-search', 
 ['$scope', '$http','$timeout', function ($scope,$http,$timeout)
   {     
-        /**
-         * Json para obtener la id contador y definir uso de clase notfound
+        
+            /**************************************************************************
+         * 
+         * CONFIG
+         * 
+         **************************************************************************//**
+         
+         * * Json para obtener la id contador y definir uso de clase notfound
          * @type type
          */
         var items=
@@ -13,7 +19,8 @@ app.controller('ng-app-controller-search',
                                 classNotFound: 'notFound'
                             }
                 };
-                
+        
+         var timer=null;
                 
         //funcion para que se muestre todos los dulces sin buscar nada
         (function() 
@@ -34,7 +41,7 @@ app.controller('ng-app-controller-search',
         })();
         
         //funcion para mostrar dulces segun busqueda
-       var timer=null;
+      
 
        $scope.search=function(e) 
        {
@@ -44,9 +51,11 @@ app.controller('ng-app-controller-search',
 
            timer=$timeout (function()
            {
-                $http.post('/search', //nombre del controlador
+                $http.post(isNaN(val)?"/searchCadena" : "/searchNumero",//si el valor pasado es numero devuelve false sino true
                   {
-                     nombre: val //Envio la propiedad nombre del obj al controlador java /search
+                     nombre: val, //Envio la propiedad nombre del obj al controlador java /search
+                     descripcion:val, //Envio la propiedad descripcion del obj al controlador java /search
+                     peso:val //Envio la propiedad descripcion del obj al controlador java /searchNumero o /searchCadena
 
                   })
                   .then(function (response)
@@ -73,14 +82,12 @@ app.controller('ng-app-controller-search',
                     
                         
                          console.log("fuera if"+cont); console.log(items.elemento);
-                         
-                    
                       
-
                   });
             },2000);
         };
         
+       
        
         
         

@@ -12,6 +12,7 @@ public class ItemModel {
     private String nombre;
     private String descripcion;
     private String url;
+    private int peso;
 
     public int getId() {
         return id;
@@ -43,6 +44,14 @@ public class ItemModel {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public int getPeso() {
+        return peso;
+    }
+
+    public void setPeso(int peso) {
+        this.peso = peso;
     }
     
 }

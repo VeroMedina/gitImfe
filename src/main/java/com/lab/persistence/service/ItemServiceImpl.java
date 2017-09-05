@@ -22,9 +22,9 @@ public class ItemServiceImpl implements ItemService
     ItemMapper iMapper;
      
   @Override
-  public List<ItemModel> searchService(ItemModel obj) throws Exception
+  public List<ItemModel> searchCadenaService(ItemModel obj) throws Exception
   {
-      List<ItemModel> y = iMapper.searchMapper(obj);
+      List<ItemModel> y = iMapper.searchCadenaMapper(obj);
       
       return y;
   }
@@ -36,4 +36,13 @@ public class ItemServiceImpl implements ItemService
       
       return y;
   }
+
+    @Override
+    public List<ItemModel> searchNumeroService(ItemModel obj) throws Exception 
+    {
+        List<ItemModel> y = iMapper.searchNumeroMapper(obj);
+      
+      return y;
+    }
+    
 }

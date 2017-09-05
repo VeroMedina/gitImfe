@@ -30,7 +30,7 @@ public class ItemMapperImpl implements ItemMapper
      * @return
      * @throws Exception 
      */
-    public List<ItemModel> searchMapper (ItemModel obj) throws Exception
+    public List<ItemModel> searchCadenaMapper (ItemModel obj) throws Exception
     {
         //Creamos el array 'y' donde vamos a recoger los objetos
         List<ItemModel> y = new ArrayList<>();
@@ -40,7 +40,10 @@ public class ItemMapperImpl implements ItemMapper
              db.conecta();
         
         //Realizamos consulta
-        String sql= "SELECT * FROM items where (nombre LIKE '%"+obj.getNombre()+"%')";
+        String sql= " SELECT * "
+                    + " FROM items "
+                    + " where (nombre LIKE '%"+obj.getNombre()+"%') OR"
+                    + " (descripcion LIKE '%"+obj.getDescripcion()+"%')";
         
         //Incluidmos en la variable rdo el resultado de la consulta
         ResultSet rdo=db.consulta(sql);
@@ -85,7 +88,7 @@ public class ItemMapperImpl implements ItemMapper
              db.conecta();
         
         //Realizamos consulta
-        String sql= "SELECT * FROM items ";
+        String sql= " SELECT * FROM items ";
         
         //Incluidmos en la variable rdo el resultado de la consulta
         ResultSet rdo=db.consulta(sql);
@@ -113,5 +116,55 @@ public class ItemMapperImpl implements ItemMapper
         return y;
         
       
+    }
+
+   
+    @Override
+    public List<ItemModel> searchNumeroMapper(ItemModel obj) throws Exception 
+    {
+        
+         //Creamos el array 'y' donde vamos a recoger los objetos
+        List<ItemModel> y = new ArrayList<>();
+        /**
+        * CONECTANDO A LA BBDD.
+        */
+             db.conecta();
+        
+        //Realizamos consulta
+        String sql= " SELECT * "
+                    + " FROM items "
+                    + " where items.id "
+                                    + " IN "
+                                    + " (SELECT id "
+                                    + " FROM pesoitems "
+                                    + " WHERE peso ='"+obj.getPeso()+"')";
+        
+        //Incluidmos en la variable rdo el resultado de la consulta
+        System.out.println(sql);
+        
+        ResultSet rdo=db.consulta(sql);
+        
+        //Recorremos la consulta
+        while (rdo.next())
+        {
+            //Creamos los objetos 'item' para añadirlos al array 'y'
+            ItemModel item = new ItemModel();
+            
+            //Obtenemos los resultados de  'rdo' y lo añadimos al objeto item a su propiedad
+            item.setId(rdo.getInt("id"));
+            item.setNombre(rdo.getString("nombre"));
+            item.setDescripcion(rdo.getString("descripcion"));
+            item.setUrl(rdo.getString("url"));
+            
+            //Añadimos al array 'y' cada objeto 'item' con sus propiedades obtenidas
+            y.add(item);
+            
+        }
+               
+        //Desconectamos la BBDD
+        db.desconecta();
+        
+        return y;
+        
     }
 }

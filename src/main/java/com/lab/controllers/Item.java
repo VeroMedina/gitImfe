@@ -19,13 +19,13 @@ public class Item
     ItemService iService;
     
     @ResponseBody
-    @RequestMapping(value = "/search",
+    @RequestMapping(value = "/searchCadena",
                   method = RequestMethod.POST,
                   produces = MediaType.APPLICATION_JSON_VALUE) //vamos a usar Json
-  public List<ItemModel> search(@RequestBody ItemModel obj) throws Exception
+  public List<ItemModel> searchCadena(@RequestBody ItemModel obj) throws Exception
   {
         
-      List<ItemModel> y = iService.searchService(obj);
+      List<ItemModel> y = iService.searchCadenaService(obj);
 
       return y;
     
@@ -44,6 +44,18 @@ public class Item
     
   }
   
+  @ResponseBody
+    @RequestMapping(value = "/searchNumero",
+                  method = RequestMethod.POST,
+                  produces = MediaType.APPLICATION_JSON_VALUE) //vamos a usar Json
+  public List<ItemModel> searchNumero(@RequestBody ItemModel obj) throws Exception
+  {
+        
+      List<ItemModel> y = iService.searchNumeroService(obj);
+
+      return y;
+    
+  }
     
     
     
