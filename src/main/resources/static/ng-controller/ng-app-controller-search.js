@@ -33,8 +33,9 @@ app.controller('ng-app-controller-search',
          * @param {type} e -> no recibe ningun parametro
          * @return {undefined} devuelve todos los items con sus atributos
          */
-        (function() 
+        (function () 
         {
+            
             $http.post('/searchAll',{}) //nombre del controlador
             .then(function (response)
             {
@@ -68,7 +69,7 @@ app.controller('ng-app-controller-search',
 
            timer=$timeout (function()
            {
-                $http.post(isNaN(val)?"/searchCadena" : "/searchNumero",//si el valor pasado es numero devuelve false sino true
+                $http.post(esNumerico(val),//Ejecuto funcion para introducir un controlador java u otro segun sea numero o cadena
                   {
                      nombre: val, //Envio la propiedad nombre del obj al controlador java /search
                      descripcion:val, //Envio la propiedad descripcion del obj al controlador java /search
@@ -110,6 +111,25 @@ app.controller('ng-app-controller-search',
             $scope.contador = cont;
        };
        
+       /**
+        * Metodo para comprobar si lo introducido en el buscador es numerico o cadena,
+        * @param {type} param -> recibe en parametro del input del buscador
+        * @returns {x|String} -> devuelve el ir a un controlador u otro
+        */
+       function esNumerico (param)
+       {
+          if (param !=="")
+          {
+              x=isNaN(param)?"/searchCadena" : "/searchNumero";//si el valor pasado es numero devuelve false sino true
+          }
+          else
+          {
+              x="/searchAll";
+              
+          }
+           
+           return x;
+       }
        
        
        

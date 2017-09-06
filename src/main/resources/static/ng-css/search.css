@@ -229,7 +229,7 @@
   padding: 10px 0;
 }
 
-#contenedorSearch #contenedorRdo article > * > div h1
+#contenedorSearch #contenedorRdo article > * > div h1.span
 {
   text-transform: uppercase;
   border-bottom: 1px solid rgba(50, 50, 50, 0.2);
@@ -262,4 +262,9 @@
       font-size: 15px;
 
     }
-}
+}    
+.searchSubrayado
+    {
+        background-color: yellow;
+    }
+

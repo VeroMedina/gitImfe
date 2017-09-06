@@ -10,6 +10,7 @@ import com.lab.persistence.model.ItemModel;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -33,8 +34,12 @@ public class ItemServiceImpl implements ItemService
   public List<ItemModel> searchCadenaService(ItemModel obj) throws Exception
   {
       List<ItemModel> y = iMapper.searchCadenaMapper(obj);
+ 
+      List<ItemModel> lista = this.replace(obj,y); //Ejecutamos metodos y le pasamos lo requerido por el metodo
       
-      return y;
+      return lista;
+      
+      
   }
   
   
@@ -46,4 +51,43 @@ public class ItemServiceImpl implements ItemService
       return y;
     }
     
+    /**
+     * Metodo que recibe el objeto buscado y la lista de los objetos buscados
+     * @param obj -> nombre buscado
+     * @param y -> lista de objetos buscados con todos sus propiedades
+     * @return  -> devuelve la lista de los objetos buscados pero con su estilo cambiado
+     */
+    public List<ItemModel> replace (ItemModel obj, List<ItemModel>y)
+    {
+         for (int i = 0, max = y.size(); i < max; i++) 
+        {
+            //Reemplazamos el nombre buscado
+            y.get(i).setNombre(
+                    this.pattern(obj.getNombre())
+                            .matcher(y.get(i).getNombre())
+                            .replaceAll(this.patternReplace(obj.getNombre()))
+            );
+            y.get(i).setDescripcion(
+                    this.pattern(obj.getDescripcion())
+                            .matcher(y.get(i).getDescripcion())
+                            .replaceAll(this.patternReplace(obj.getDescripcion()))
+            );
+        }
+      
+         return y;
+    }
+    
+        private Pattern pattern(String x)
+        {
+          return Pattern.compile("(?i)" + x);
+        }
+
+        private String patternReplace(String x)
+        {
+          return "<strong class=\"searchSubrayado\">" + x + "</strong>";
+        }
+
 }
+    
+    
+

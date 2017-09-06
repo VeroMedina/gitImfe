@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute']); //Genero modulo
+var app = angular.module('app', ['ngRoute','ngSanitize']); //Genero modulo
 
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider,
   $locationProvider)
