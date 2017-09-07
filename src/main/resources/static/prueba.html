@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app"> 
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Titulo</title>
+        <link type="text/css" rel="stylesheet"  href="/api/css/normalizer.css"/>
+        <link type="text/css" rel="stylesheet"  href="/ng-css/inicial.css"/>
+        <link type="text/css" rel="stylesheet"  href="/ng-css/test.css"/>
+        <link type="text/css" rel="stylesheet"  href="/ng-css/about.css"/>
+        <link type="text/css" rel="stylesheet"  href="/ng-css/kirby.css"/>
+        <link type="text/css" rel="stylesheet"  href="/ng-css/search.css"/>
+        <script type="text/javascript" src="/api/js/lib/ng-angular.min.js"></script>
+        <script type="text/javascript" src='/api/js/lib/ng-angular-route.min.js'></script>
+        <script type="text/javascript" src='/api/js/lib/ngSanitize.min.js'></script>
+        <script type="text/javascript" src='/api/js/ng-const/ng-const.min.js'></script>
+
+        <script type="text/javascript" src="/api/js/ng-module/ng-module-app.js"></script>
+
+    </head>
+    <body> 
+
+
+
+
+        <script>
+            //          
+            //                  
+            //          var persona = 
+            //                  {
+            //                    nombre: "Jose",
+            //                    apellido: "Vaca",
+            //                    edad: 21,
+            //                    colorOjos: "Marron"
+            //                    
+            //                  }
+            //
+            //          var array=[];
+            //          
+            //          array.push(persona);
+            //          array.push(persona);
+            //        
+            //          for (var i = 0, max = array.length; i < max; i++) 
+            //           {
+            //                 for (key in array[i])
+            //                 {
+            //                    console.log( key );
+            //                   
+            //                }
+            //                 console.log( "----------" );
+            //           }   
+            //       
+
+
+            sumar(function (param)
+            {
+                return param(function(n){return n})
+            },
+                    3);
+
+            function sumar(a, b)
+            {
+                console.log(a(function (pa)
+                {
+                    return pa(3)
+                }) + b);
+            }
+
+
+
+
+
+        </script>
+
+    </body>
+</html>

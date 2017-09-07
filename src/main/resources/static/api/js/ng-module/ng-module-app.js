@@ -19,7 +19,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider,
     .when('/info',
     {
       templateUrl: GBL_COFG.urlTemplate('info.html'),
-      
+      controller: 'ngAppControllerAbout'
     })
 
     .when('/test',
